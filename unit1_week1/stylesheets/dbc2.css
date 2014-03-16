@@ -16,8 +16,8 @@
 }
 
 .caption {
-  font-color:white;
-  position:absolute;
+  color:white;
+  text-shadow:2px 2px black;
   top:300px;
   left:100px;
 }
