@@ -6,7 +6,7 @@ body {
   color: #000;
 }
 
-.lists ul>li,ol>li{
+.lists {
   font-style:bold;
 }
 
