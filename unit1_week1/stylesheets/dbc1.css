@@ -1,0 +1,19 @@
+body {
+  font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+  background-color: #6B9EFF;
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+.lists{
+  font: bold;
+}
+
+#emstrong{
+  font: 150%, Arial;
+}
+
+a:hover{
+  background-color: black;
+}
