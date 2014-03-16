@@ -6,8 +6,8 @@ body {
   color: #000;
 }
 
-ul.lists {
-  padding-left: 30px;
+.lists ul, .lists ol {
+  font-style: bold;
 }
 
 #emstrong {
