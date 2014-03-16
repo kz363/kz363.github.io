@@ -6,12 +6,13 @@ body {
   color: #000;
 }
 
-.lists {
+.lists ul>li,ol>li{
   font:bold;
 }
 
 #emstrong {
-  font:20px, Georgia;
+  font-size: 20px;
+  font-family: Monaco, Courier, sans-serif;
 }
 
 a:hover {
