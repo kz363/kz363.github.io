@@ -6,14 +6,18 @@ body {
   color: #000;
 }
 
-.lists{
+.lists {
   font:bold;
 }
 
-#emstrong{
+#emstrong {
   font:20px, Georgia;
 }
 
-a:hover{
+a:hover {
   background-color: black;
+}
+
+p em,strong {
+  background-color: teal;
 }
