@@ -2,3 +2,21 @@
   background-color: lightblue;
   color: grey;
 }
+
+#content {
+  float: right;
+}
+
+#sidebar {
+  float: left;
+}
+
+#caption {
+  font-color:white;
+  text-shadow:1px 1px #FFFFFF;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
