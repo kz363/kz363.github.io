@@ -7,11 +7,11 @@ body {
 }
 
 .lists{
-  font: bold;
+  font:bold;
 }
 
 #emstrong{
-  font: 150%, Arial;
+  font:20px, Georgia;
 }
 
 a:hover{
