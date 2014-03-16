@@ -7,7 +7,7 @@ body {
 }
 
 .lists ul>li,ol>li{
-  font:bold;
+  font-style:bold;
 }
 
 #emstrong {
