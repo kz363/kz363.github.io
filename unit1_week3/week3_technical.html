@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kevin's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="blog-header">
+      <h1 class="blog-title">Kevin's Blog</h1>
+    </div>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="../index.html">Home</a>
+          <a class="blog-nav-item" href="#">Archives</a>
+          <a class="blog-nav-item" href="#">About</a>
+          <a class="blog-nav-item" href="#">Contact</a>
+          <a class="blog-nav-item" href="#">Search</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <h4>Recent Posts</h4>
+            <ol class="list-unstyled">
+              <li><a href="../unit1_week3/week3_cultural_blog.html">Cultural Blog #2</a></li>
+              <li><a href="../unit1_week3/week3_technical.html">Technical Blog #2</a></li>
+              <li><a href="../unit1_week2/week2_cultural_blog.html">Cultural Blog</a></li>
+              <li><a href="../unit1_week2/week2_technical.html">Technical Blog</a></li>
+              <li><a href="../unit1_week1/favorite_websites.html">Favorite Websites</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/kz363">GitHub</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Technical Blog #2</h2>
+            <p class="blog-post-meta">March 29, 2014 by <a href="#">Kevin</a></p>
+
+            <p>Even though I have a bit of programming background from school, I never learned about hashes. I only learned how to use arrays and only discovered hashes when I started learning Ruby. I'll try to explain arrays and hashes and the uses for each of them in this blog post.</p>
+            <br>
+            <p>Arrays are like lists of objects. Imagine you have a grocery list of items you want to buy. If you were to find one thing in the list, you'd have to scan from top to bottom and look for it. If you wanted to be more organized, you can number each object and look for them more easily, so #4 of the list could be Milk. The 4 in terms of arrays is an index, while Milk is the value at that index.</p>
+            <p>Hashes function differently from arrays in that they're not really lists. Instead of each object in the list having a number assigned to it, hashes have key and value pairs. For example, hash["Basketball"] = "Sport" could be a pair, where Basketball is the key and Sport is the value.</p>
+            <br>
+            <p>Let's say we want to find a structure to store the ages of people in a city. In arrays, you would have to make the array multi-dimensional to store these pairs of data.</p>
+            <code>ages = [["Adam Smith", "33"], ["John Doe", "54"]]</code>
+            <p>To find the age of a particular person in our array, we'd have to start from the beginning and look through each element of the array. The code for that would look something like this:</p>
+            <code>ages.each {|x,y| puts y if x == "Adam Smith"}</code>
+            <p>Now that seems fine and dandy, but imagine if our ages array had hundreds and thousands of people in it, and Adam Smith were at the end. The longer the array is, the longer it will take to find the person.</p>
+            <p>If we were to use hashes instead, we can always use ages["Adam Smith"] to find the age of Adam Smith. That's much simpler than the array implementation and it'll take the same amount of time no matter how many people are stored in the hash. Because of how hashes work, the hash knows exactly where to go to retrieve the value when you give it the key.</p>
+            <br>
+            <p>Moving along, there are cool ways to use hashes and arrays together to do cool stuff. Here's an example of how I used a "histogram" to find the mode of an array for our bonus challenge this week:</p>
+            <code>mode_count = Hash.new(0)<br>array.each { |x| mode_count[x] += 1 }</code>
+            <br>
+            <p>This code will first make a new Hash and initialize the default value to be 0 for any key added. Then it iterates through an array and adds 1 to the value every time a key shows up in the array. I learned about this when I was first learning about hashes in Ruby and it blew my mind.</p>
+            <br>
+            <p>Overall, hashes are more efficient when it comes to performance compared to arrays. Even so, not everything is about efficiency though. Sometimes you just need the proper tool to fit the job. The more I try to differentiate the two, the more I realize that it's really easy in Ruby to do the same thing with either structure. Until I'm more experienced and have a better understanding,  I'll say for now that arrays are useful for storing simple lists of data, while hashes are useful for storing data pairs that are easy to search for later.</p>
+          </div>
+
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-footer">
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+  </body>
+</html>
