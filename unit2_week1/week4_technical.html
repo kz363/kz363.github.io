@@ -11,8 +11,8 @@
     <title>Kevin's Blog</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="stylesheets/blog.css" rel="stylesheet">
+    <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheets/blog.css" rel="stylesheet">
   </head>
 
   <body>
@@ -24,7 +24,7 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="index.html">Home</a>
+          <a class="blog-nav-item active" href="../index.html">Home</a>
           <a class="blog-nav-item" href="#">Archives</a>
           <a class="blog-nav-item" href="#">About</a>
           <a class="blog-nav-item" href="#">Contact</a>
@@ -59,10 +59,21 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Welcome!</h2>
-            <p class="blog-post-meta">March 16, 2014 by <a href="#">Kevin</a></p>
+            <h2 class="blog-post-title">Technical Blog #3</h2>
+            <p class="blog-post-meta">April 5, 2014 by <a href="#">Kevin</a></p>
 
-            <p>You can browse my posts via the sidebar on the left!</p>
+            <p>In the Ruby language, there's always a seemingly large number of ways to complete a certain task. This is how I feel when I look at #cycle. It takes an an enumerable and calls the following code block repeatedly for an n number of times. Here's the example code given in the Ruby documentation:</p>
+            <code>a = ["a", "b", "c"]<br>a.cycle { |x| puts x }  # print, a, b, c, a, b, c,.. forever.<br>a.cycle(2) { |x| puts x }  # print, a, b, c, a, b, c.</code>
+            <br><br>
+            <p>As you can see, it's similar to #times except it's specifically for each element of the enumerable. I'll admit, I had trouble coming up with a viable use for #cycle, but here are some examples that will hopefully help you learn more about it!</p>
+            <p>The following code will print out a times table for the numbers 1 through 10. #cycle is one of the many methods you could do to iterate through the range (1..10).</p>
+            <code>i = 1<br>until i == 11<br>&nbsp&nbsp(1..10).cycle(1){|x| print "#{x*i} "}<br>&nbsp&nbspputs "\n"<br>&nbsp&nbspi+=1<br>end</code>
+            <br><br>
+            <p>#cycle takes a block, but if no block is given, it returns an enumerator. This means you can create an "infinite" iteration of sorts. The following is what happens when you try this in IRB:</p>
+            <code>>> infinite_numbers = (1..3).cycle<br>=> #&lt;Enumerator: 1..3:cycle&gt;</code>
+            <br><br>
+            <p>If you were to keep calling infinite_numbers.next, it'll keep looping from 1, 2, 3, 1, 2, 3, and so on. Whether or not you can find a use for this is up to you!</p>
+
           </div>
 
           <ul class="pager">
@@ -81,7 +92,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="unit1_week1/js/bootstrap.min.js"></script>
-    <script src="unit1_week1/js/docs.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
   </body>
 </html>
