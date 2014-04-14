@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kevin's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheets/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="blog-header">
+      <h1 class="blog-title">Kevin's Blog</h1>
+    </div>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="../index.html">Home</a>
+          <a class="blog-nav-item" href="#">Archives</a>
+          <a class="blog-nav-item" href="#">About</a>
+          <a class="blog-nav-item" href="#">Contact</a>
+          <a class="blog-nav-item" href="#">Search</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <h4>Recent Posts</h4>
+            <ol class="list-unstyled">
+              <li><a href="week5_cultural_blog.html">Cultural Blog #4</a></li>
+              <li><a href="week5_technical.html">Technical Blog #4</a></li>
+              <li><a href="week4_cultural_blog.html">Cultural Blog #3</a></li>
+              <li><a href="week4_technical.html">Technical Blog #3</a></li>
+              <li><a href="week3_cultural_blog.html">Cultural Blog #2</a></li>
+              <li><a href="week3_technical.html">Technical Blog #2</a></li>
+              <li><a href="week2_cultural_blog.html">Cultural Blog</a></li>
+              <li><a href="week2_technical.html">Technical Blog</a></li>
+              <li><a href="favorite_websites.html">Favorite Websites</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/kz363">GitHub</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Cultural Blog #4</h2>
+            <p class="blog-post-meta">April 13, 2014 by <a href="#">Kevin</a></p>
+              <p>I used to be interested in mobile game development, and when it comes to small indie groups releasing monetized games, it is vital to protect cheating in order to keep up revenue. Frequently targeted values are gold, EXP, coins, etc. These values are critical so they must be protected in memory and on disk. I did some research in the past on how to deal with this problem, and here are my findings.</p>
+              <p>The two common ways of hacking games is save-game editing and memory editing.</p>
+              <h3>Save-Game Editing</h3>
+              <p>If the game saves are not encrypted, it is easy to access them and edit them inside a HEX editor to search for and change key values. It is easy to inspect the changes from one save to another if the data layout is consistent.</p>
+              <p>Once modified, the save can be downloaded on the internet as there is no check that the save belongs to a specific device.</p>
+              <h4><p>Solutions:</p></h4>
+              <ul>
+              <li>Add Encryption: never write plain memory data. You can use <a href="http://en.wikipedia.org/wiki/XXTEA">XXTEA</a> encryption for example.</li>
+              <li>Add check values: double/triple write your critical values with a different scheme and use this to verify that all values are coherent. You can write a short term history for these values for example.</li>
+              <li>Add a CRC check to verify that the data has not been modified externally.</li>
+              <li>Do not store these values inside a separate file but with other game data (map, etc.)</li>
+              </ul>
+              <h3>Memory Editing</h3>
+              <p>Instead of modifying the save game, it is possible to scan the memory as the values are modified by the game. Once the memory locations of key values are identified, they can be patched in memory without the game noticing and they will then be saved as regular values for future sessions.</p>
+              <h4><p>Solutions:</p></h4>
+                  <ul>
+              <li>Make it harder to find the location of values. Do not store the value “as-is” in memory and make it move.</li>
+              <li>Detect that the value was not modified by the game itself. Keep a duplicate of your critical values in memory and  verify them before any modification.</li>
+              </ul>
+              <p>Of course, these solutions are mainly for games that don't require a connection to a server to play. When there is a server in the equation, these key values can be stored and modified on the server so cheating is almost impossible. But for smaller groups of developers that can't handle the bandwidth, these solutions are a relatively easy way of protecting your game.</p>
+          </div>
+
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-footer">
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+  </body>
+</html>

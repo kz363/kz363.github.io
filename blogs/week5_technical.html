@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kevin's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheets/blog.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="blog-header">
+      <h1 class="blog-title">Kevin's Blog</h1>
+    </div>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item active" href="../index.html">Home</a>
+          <a class="blog-nav-item" href="#">Archives</a>
+          <a class="blog-nav-item" href="#">About</a>
+          <a class="blog-nav-item" href="#">Contact</a>
+          <a class="blog-nav-item" href="#">Search</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <h4>Recent Posts</h4>
+            <ol class="list-unstyled">
+              <li><a href="week5_cultural_blog.html">Cultural Blog #4</a></li>
+              <li><a href="week5_technical.html">Technical Blog #4</a></li>
+              <li><a href="week4_cultural_blog.html">Cultural Blog #3</a></li>
+              <li><a href="week4_technical.html">Technical Blog #3</a></li>
+              <li><a href="week3_cultural_blog.html">Cultural Blog #2</a></li>
+              <li><a href="week3_technical.html">Technical Blog #2</a></li>
+              <li><a href="week2_cultural_blog.html">Cultural Blog</a></li>
+              <li><a href="week2_technical.html">Technical Blog</a></li>
+              <li><a href="favorite_websites.html">Favorite Websites</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://github.com/kz363">GitHub</a></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">Technical Blog #4</h2>
+            <p class="blog-post-meta">April 13, 2014 by <a href="#">Kevin</a></p>
+
+            <p>If you're new to Ruby, chances are that you've been working with classes and objects without knowing exactly what they are. Everything in Ruby is an object, but you can further subdivide them into a Class which share the same methods. You may have worked with some of these classes: String, Integer, Float, Array, Hash. Classes are always capitalized in Ruby convention, and are defined using the class keyword followed by the name. Here's an example:</p>
+            <code>class Card<br>&nbspdef initialize(value, suit)<br>&nbsp&nbsp@value = value<br>&nbsp&nbsp@suit = suit<br>&nbspend<br>end<br><br>card = Card.new("A", "Spades")</code>
+            <br><br>
+            <p>Whenever you create a new instance of a class with .new, you can create new variables called instance variables using the @ operator. The instance variables in the code above are @value and @suit under the initialize method, which automatically runs when a new instance is created. In this example, they're equal to the strings "A" and "Spades" respectively. These instance variables can only be read or modified with that instance's methods. Currently there aren't any methods to do that, so let's write some!</p>
+            <code>def value<br>&nbspreturn @value<br>end<br><br>def value=(value)<br>&nbsp@value = value<br>end</code>
+            <br><br>
+            <p>These two methods allow you to access @value using card.value. For example, you can print the value by doing <code>puts card.value</code>, or you can edit the value by doing <code>card.value = 5</code>. Both of the methods above are considered instance methods. Similar to instance variables, they only can only exist and be called from within an instance of a class.</p>
+            <p>Ruby actually has a convenient way of automatically generating methods to read and write to instance variables, so we don't need to write the code above for every variable.</p>
+            <code>class Card<br>&nbspattr_accessor :value, :suit<br><br>&nbspdef initialize(value, suit)<br>&nbsp&nbsp@value = value<br>&nbsp&nbsp@suit = suit<br>&nbspend<br>end</code>
+            <br><br>
+            <p>The code above allows you to write and read both @value and @suit without creating methods to do it for you. Of course, if you don't need to read and write, you can declare them with <code>attr_reader</code> or <code>attr_writer</code> depending on what you need. Isn't that neat?</p>
+
+          </div>
+
+          <ul class="pager">
+            <li><a href="#">Previous</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-footer">
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+  </body>
+</html>
