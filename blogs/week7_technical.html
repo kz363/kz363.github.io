@@ -42,7 +42,7 @@
               <li><a href="week7_cultural_blog.html">Cultural Blog #6</a></li>
               <li><a href="week7_technical.html">Technical Blog #6</a></li> 
               <li><a href="week6_cultural_blog.html">Cultural Blog #5</a></li>
-              <li><a href="week6_technical.html">Technical Blog #5</a></li>   
+              <li><a href="week6_technical.html">Technical Blog #5</a></li>              
               <li><a href="week5_cultural_blog.html">Cultural Blog #4</a></li>
               <li><a href="week5_technical.html">Technical Blog #4</a></li>
               <li><a href="week4_cultural_blog.html">Cultural Blog #3</a></li>
@@ -65,23 +65,16 @@
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
-            <h2 class="blog-post-title">Technical Blog</h2>
-            <p class="blog-post-meta">March 22, 2014 by <a href="#">Kevin</a></p>
+            <h2 class="blog-post-title">Technical Blog #6</h2>
+            <p class="blog-post-meta">April 27, 2014 by <a href="#">Kevin</a></p>
 
-            <p>This is a question that I wasn't sure about, but JavaScript has always piqued my interests because I hear it mentioned on the internet all the time. After some searching on Google, which uses tons of JavaScript, these are some of the reasons why JavaScript has become so popular for web development:</p>
-            <br>
-            <h3><i>JavaScript...</i></h3>
-            <ul>
-              <li>Is easy to learn compared to other languages.</li>
-              <li>Easy to edit because it doesn't need to be compiled or written in expensive software. Any simple text editor will do.</li>
-              <li>Has a lot of libraries, which are collections of pre-written code that allows developers to cut down on development time.</li>
-              <li>Allows web pages to be interactive. Sites like Gmail and Google Maps are built with a lot of JavaScript code.</li>
-              <li>Is supported by every modern browser, allowing developers to reach a huge audience with their code.</li>
-              <li>Can interact with all the elements of a web page (HTML & CSS) to make dynamic web pages as opposed to static ones.</li>
-              <li>Runs on the user's computer so it doesn't put extra stress on the server.</li>
-            </ul>
-            <br>
-            <p>All these reasons makes it easy to see why JavaScript is the popular choice, especially for web development. It allows web pages to interact with the user right in their own browser without the need for any additional software. I predict that JavaScript will continue to be a standard in the future as it is now.</p>
+              <p>This week I'll be writing about SQL injections. If you haven't seen it already, there's a relevant <a href="http://xkcd.com/327/">XKCD comic</a> that shows an example of what it is. I'll explain how inject in this comic worked, particularly the Robert'); DROP TABLE students;-- line.</p>
+              <p>The original code in the in the school's program probably looked something like this:</p>
+              <code>"INSERT INTO students VALUES ('$Name')";</code><br><br>
+              <p>So the mom in the comic typed in Robert'); DROP TABLE students;-- as the user input. What does this do to the code above? $Name gets replaced by this input and then the computer runs this:</p>
+              <code>"INSERT INTO students VALUES ('Robert'); DROP TABLE students;--')";</code><br><br>
+              <p>First, just for clarification, the -- at the end of the input comments everything else out, meaning the ')" from the initial code is cut out. Now imagine that the computer runs this code. It'll do two things. First it'll add Robert to the students table, then it'll delete the students table on the next line. Injection attacks only work when the resulting SQL query is syntatically correct, which in the case of this comic, is probably how it worked.</p>
+              <p>An example of how to stop an attack like this for a newbie programmer is to make a function to sanitize user input, as the last frame of the XKCD comic mentions. The function needs to check the user input string for malicious characters. Whose name would have a ", ), ;, or } in it? So instead of just passing $Name into the insert, you can pass validate($Name) assuming your function is named validate.</p>
           </div>
 
           <ul class="pager">
